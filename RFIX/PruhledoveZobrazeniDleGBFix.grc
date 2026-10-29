@@ -1,0 +1,10 @@
+'MDID' 32500 "Add-On Identifier" {
+	944205126
+	323968475
+}
+
+/* Icons */
+'GICN' 32500 "Posun Odkazu dle GB" {
+	"Posun_Pruhled_GB"
+}
+

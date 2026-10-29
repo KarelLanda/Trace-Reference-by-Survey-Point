@@ -1,0 +1,14 @@
+'STR#' 32000 "Add-on Name and Description" {
+/* [  1] */ "Posun Odkazu dle GB"
+/* [  2] */ "Posune a otočí odkaz (průhledové zobrazení) podle geodetického bodu."
+}
+
+'STR#' 32500 "Strings for the Menu" {
+/* [   ] */ "Hotline Cegra"
+/* [  1] */ "Posun Odkazu dle GB^EW^32500"
+}
+
+'STR#' 32501 "Prompt strings" {
+/* [   ] */ "Hotline Cegra"
+/* [  1] */ "Posun Odkazu dle GB"
+}
