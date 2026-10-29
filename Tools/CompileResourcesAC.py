@@ -103,7 +103,7 @@ def Main():
                 if not PrecompileGRCWin(incPath, dglibPath, sourcesPath, grcFile, precompiled):
                     print(f"Precompilation failed: {grcFile}")
                     return 1
-                roFile = resourceObjectsPath / f'{grcFile.stem}.rc2'
+                roFile = resourceObjectsPath / f'{grcFile.name}.rc2'
                 if not RunResConv(resConvPath, 'W', 'utf8', precompiled, roFile, resourcesFolders, colorChangeScriptPath):
                     print(f"ResConv failed: {grcFile}")
                     return 1
@@ -125,7 +125,7 @@ def Main():
                 if not PrecompileGRCWin(incPath, dglibPath, sourcesPath, grcFile, precompiled):
                     print(f"Precompilation failed: {grcFile}")
                     return 1
-                roFile = resourceObjectsPath / f'{grcFile.stem}.rc2'
+                roFile = resourceObjectsPath / f'{grcFile.name}.rc2'
                 if not RunResConv(resConvPath, 'W', 'utf8', precompiled, roFile, resourcesFolders, colorChangeScriptPath):
                     print(f"ResConv failed: {grcFile}")
                     return 1

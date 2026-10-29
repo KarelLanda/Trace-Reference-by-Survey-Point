@@ -18,10 +18,12 @@ jobs:
       matrix:
         include:
           - ac_version: 'AC29'
-            devkit_pattern: 'API.Development.Kit.WIN.29.*.zip'
+            devkit_tag: 'DevKit-AC29'
+            devkit_pattern: 'API.Development.Kit.WIN.29.3100.zip'
             artifact_suffix: 'AC29'
           - ac_version: 'AC30'
-            devkit_pattern: 'API.Development.Kit.WIN.30.*.zip'
+            devkit_tag: 'DevKit-AC30'
+            devkit_pattern: 'API.Development.Kit.WIN.30.3000.zip'
             artifact_suffix: 'AC30'
 
     steps:
@@ -44,8 +46,8 @@ jobs:
           GH_TOKEN: ${{ secrets.DEVKIT_PAT || secrets.GITHUB_TOKEN }}
         run: |
           New-Item -ItemType Directory -Force -Path "$env:RUNNER_TEMP\DevKit"
-          Write-Host "Downloading DevKit (${{ matrix.ac_version }}) from KarelLanda/Archicad-Devkits..."
-          gh release download --repo KarelLanda/Archicad-Devkits --pattern "${{ matrix.devkit_pattern }}" --dir "$env:RUNNER_TEMP"
+          Write-Host "Downloading DevKit (${{ matrix.ac_version }}) tag ${{ matrix.devkit_tag }} from KarelLanda/Archicad-Devkits..."
+          gh release download "${{ matrix.devkit_tag }}" --repo KarelLanda/Archicad-Devkits --pattern "${{ matrix.devkit_pattern }}" --dir "$env:RUNNER_TEMP"
           $zipFile = Get-ChildItem -Path "$env:RUNNER_TEMP" -Filter "*.zip" | Select-Object -First 1
           if (-not $zipFile) {
               Write-Error "DevKit zip not found matching pattern ${{ matrix.devkit_pattern }}"
